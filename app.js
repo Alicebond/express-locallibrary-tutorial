@@ -1,12 +1,23 @@
 const createError = require("http-errors");
 const express = require("express");
 const path = require("path");
+const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
+const { username, password } = require("./config");
 
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
 
+// setup database
+mongoose.set("strictQuery", false);
+const mongoDB = `mongodb+srv://${username}:${password}@cluster0.frztuxp.mongodb.net/`;
+
+async function main() {
+  await mongoose.connect(mongoDB);
+}
+
+main().catch((err) => console.log(err));
 const app = express();
 
 // view engine setup

@@ -9,9 +9,9 @@ const { username, password } = require("./config");
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
 
-// setup database
+// Connect to database
 mongoose.set("strictQuery", false);
-const mongoDB = `mongodb+srv://${username}:${password}@cluster0.frztuxp.mongodb.net/`;
+const mongoDB = `mongodb+srv://${username}:${password}@cluster0.frztuxp.mongodb.net/local_library?retryWrites=true&w=majority`;
 
 async function main() {
   await mongoose.connect(mongoDB);

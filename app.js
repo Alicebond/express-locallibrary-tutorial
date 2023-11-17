@@ -13,6 +13,8 @@ const usersRouter = require("./routes/users");
 mongoose.set("strictQuery", false);
 const mongoDB = `mongodb+srv://${username}:${password}@cluster0.frztuxp.mongodb.net/local_library?retryWrites=true&w=majority`;
 
+// mongodb+srv://zhibinz:p1syaYN2SpjX6xEB@cluster0/local_library?retryWrites=true&w=majority
+
 async function main() {
   await mongoose.connect(mongoDB);
 }

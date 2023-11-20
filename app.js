@@ -4,10 +4,10 @@ const path = require("path");
 const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
-const { username, password } = require("./config");
 
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
+const { username, password } = require("./config");
 
 // Connect to database
 mongoose.set("strictQuery", false);

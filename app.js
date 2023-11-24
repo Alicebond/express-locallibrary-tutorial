@@ -15,13 +15,11 @@ const { username, password } = require("./config");
 mongoose.set("strictQuery", false);
 const mongoDB = `mongodb+srv://${username}:${password}@cluster0.frztuxp.mongodb.net/local_library?retryWrites=true&w=majority`;
 
-// mongodb+srv://zhibinz:p1syaYN2SpjX6xEB@cluster0/local_library?retryWrites=true&w=majority
-
 async function main() {
   await mongoose.connect(mongoDB);
 }
-
 main().catch((err) => console.log(err));
+
 const app = express();
 
 // view engine setup

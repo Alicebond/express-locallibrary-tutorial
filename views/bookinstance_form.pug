@@ -25,6 +25,7 @@ block content
         option(value='available' selected=(undefined===bookinstance || bookinstance.status != 'Available' ? false:'selected')) Available
         option(value='loaned' selected=(undefined===bookinstance || bookinstance.status != 'Loaned' ? false:'selected')) Loaned
         option(value='Reserved' selected=(undefined===bookinstance || bookinstance.status != 'Reserved' ? false:'selected')) Reserved
+        //- reimplementing the list, passing in option data from the controller and setting the selected value when the form is re-displayed. 
 
     button.btn.btn-primary(type='submit') Submit
 

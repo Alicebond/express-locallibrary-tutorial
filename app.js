@@ -8,6 +8,8 @@ const logger = require("morgan");
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
 const catalogRouter = require("./routes/catalog");
+const compression = require("compression");
+const helmet = require("helmet");
 
 const { username, password } = require("./config");
 
@@ -21,6 +23,22 @@ async function main() {
 main().catch((err) => console.log(err));
 
 const app = express();
+
+const RateLimit = require("express-rate-limit");
+const Limiter = RateLimit({
+  windowMs: 1 * 60 * 1000,
+  max: 100,
+});
+app.use(Limiter);
+
+app.use(compression());
+app.use(
+  helmet.contentSecurityPolicy({
+    directive: {
+      "script-src": ["'self'", "code.jquery.com", "cdn.jsdelivr.net"],
+    },
+  })
+);
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));

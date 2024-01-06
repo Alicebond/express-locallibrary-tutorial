@@ -2,7 +2,6 @@ const { body, validationResult } = require("express-validator");
 const Genre = require("../models/genre");
 const Book = require("../models/book");
 const asyncHandler = require("express-async-handler");
-const normalizeWindowsPath = require("tar/lib/normalize-windows-path");
 
 // Display list of all Genre.
 exports.genre_list = asyncHandler(async (req, res, next) => {

@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-GenreSchema = new Schema({
+const GenreSchema = new Schema({
   name: { type: String, require: true, minLength: 3, maxLength: 100 },
 });
 

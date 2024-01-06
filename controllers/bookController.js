@@ -85,7 +85,7 @@ exports.book_create_post = [
   (req, res, next) => {
     if (!Array.isArray(req.body.genre)) {
       req.body.genre =
-        typeof req.body.genre === undefined ? [] : [req.body.genre];
+        typeof req.body.genre === "undefined" ? [] : [req.body.genre];
     }
     next();
   },
@@ -218,7 +218,7 @@ exports.book_update_post = [
   (req, res, next) => {
     if (!Array.isArray(req.body.genre)) {
       req.body.genre =
-        typeof req.body.genre === undefined ? [] : [req.body.genre];
+        typeof req.body.genre === "undefined" ? [] : [req.body.genre];
     }
     next();
   },
@@ -247,7 +247,7 @@ exports.book_update_post = [
       author: req.body.author,
       summary: req.body.summary,
       isbn: req.body.isbn,
-      genre: typeof req.body.genre === undefined ? [] : req.body.genre,
+      genre: typeof req.body.genre === "undefined" ? [] : req.body.genre,
       _id: req.params.id, // This is required, or a new ID will be assigned!
     });
 
